@@ -3,18 +3,18 @@ $(document).ready(function(){
   var $body = $('body');
   //$body.html('');
   var index = streams.home.length - 1;
+  
     var streamTweets = function() {
-
       var loop = streams.home.length - 1;
 
       while (loop >= 0) {
         var tweet = streams.home[loop];
-        var $tweet = $('<li class="list-group-item tweet"></li>');
-          $tweet.text(`@${tweet.user}: ${tweet.message} posted at ${tweet.created_at}`)
+        var $tweet = $(`<li class="list-group-item tweet"><a href="#">@${tweet.user}</a><p>${tweet.message}</p><strong>${tweet.created_at}</strong</li>`);
           $tweet.appendTo('.news-feed');
           loop -= 1;
       }
-    index = streams.home.length; - 1;
+
+      index = streams.home.length; - 1;
     }
 
 
