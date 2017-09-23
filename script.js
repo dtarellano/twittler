@@ -6,7 +6,7 @@ $(document).ready(function(){
     var streamTweets = function(user) {
       var stream;
 
-      if (!arguments) {
+      if (arguments.length) {
         stream = streams.users[user];
       } else {
         stream = streams.home;
@@ -56,4 +56,11 @@ $(document).ready(function(){
       $('#notification').hide();
       $('#back').show();
     });
+
+    $('#back').on('click', function() {
+      $('.tweet').remove();
+      streamTweets()
+      tweetTimer()
+      $('#back').hide();
+    })
 });
