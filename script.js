@@ -54,5 +54,6 @@ $(document).ready(function(){
       $('.tweet').remove();
       streamTweets($user)
       $('#notification').hide();
+      $('#back').show();
     });
 });
