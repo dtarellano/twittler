@@ -15,8 +15,8 @@ $(document).ready(function(){
 
       while (loop >= 0) {
         var tweet = stream[loop];
-        var $tweet = $(`<li class="list-group-item tweet"><a href="#" data-user="${tweet.user}">@${tweet.user}</a><p>${tweet.message}</p><strong>${tweet.created_at}</strong</li>`);
-          $tweet.appendTo('.news-feed');
+        var $tweet = $(`<li class="list-group-item tweet"><a href="#" id="user"  data-user="${tweet.user}">@${tweet.user}</a><p>${tweet.message}</p><strong>${tweet.created_at}</strong</li>`);
+          $tweet.appendTo('.news-feed').hide().show('slow');
           loop -= 1;
       }
 
@@ -48,7 +48,8 @@ $(document).ready(function(){
       tweetTimer()
     });
 
-    $('.tweet').on('click', 'a', function() {
+    $('body').on('click', '#user', function(e) {
+      e.preventDefault();
       var $user = $(this).data('user');
       clearInterval(checkForTweets)
       $('.tweet').remove();
