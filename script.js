@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+  jQuery("time.timeago").timeago();
   var index = streams.home.length - 1;
 
 
@@ -15,7 +16,8 @@ $(document).ready(function(){
 
       while (loop >= 0) {
         var tweet = stream[loop];
-        var $tweet = $(`<li class="list-group-item tweet"><a href="#" id="user"  data-user="${tweet.user}">@${tweet.user}</a><p>${tweet.message}</p><strong>${tweet.created_at}</strong</li>`);
+        var timeago = tweet.created_at.toISOString();
+        var $tweet = $(`<li class="list-group-item tweet"><a href="#" id="user"  data-user="${tweet.user}">@${tweet.user}</a><p>${tweet.message}</p><time class="timeago" datetime="${timeago}"></time></li>`);
           $tweet.appendTo('.news-feed').hide().show('slow');
           loop -= 1;
       }
