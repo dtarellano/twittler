@@ -4,10 +4,16 @@ body {
 
 #the-nav {
   background-color: #2fc2ef !important;
+  opacity: .7;
 }
 
 .navbar-brand {
   color: white !important;
+  margin-left: 15px;
+}
+
+.logo {
+  width: 5%
 }
 
 #back {
