@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  jQuery("time.timeago").timeago();
+
   var index = streams.home.length - 1;
 
 
@@ -12,13 +12,14 @@ $(document).ready(function(){
       } else {
         stream = streams.home;
       }
+
       var loop = stream.length - 1;
 
       while (loop >= 0) {
         var tweet = stream[loop];
         var timeago = tweet.created_at.toISOString();
         var $tweet = $(`<li class="list-group-item tweet"><a href="#" id="user"  data-user="${tweet.user}">@${tweet.user}</a><p>${tweet.message}</p><time class="timeago" datetime="${timeago}"></time></li>`);
-          $tweet.appendTo('.news-feed').hide().show('slow');
+          $tweet.appendTo('.news-feed').hide().slideDown('slow');
           loop -= 1;
       }
 
@@ -34,20 +35,23 @@ $(document).ready(function(){
 
         if (newTweetCheck > index) {
           $('#notification').text(`You have ${newTweetCheck - index} new Tweets`)
-          $('#notification').slideDown('slow')
+          $('#notification').slideDown()
         }
       }, 5000);
     };
 
     streamTweets()
     tweetTimer()
+    jQuery("time.timeago").timeago();
+
 
     $('#notification').on('click', function() {
       clearInterval(checkForTweets)
       $('.tweet').remove();
       streamTweets()
-      $('#notification').hide();
+      $('#notification').hide('slideUp');
       tweetTimer()
+      jQuery("time.timeago").timeago();
     });
 
     $('body').on('click', '#user', function(e) {
@@ -58,6 +62,7 @@ $(document).ready(function(){
       streamTweets($user)
       $('#notification').hide();
       $('#back').show();
+      jQuery("time.timeago").timeago();
     });
 
     $('#back').on('click', function() {
@@ -65,5 +70,6 @@ $(document).ready(function(){
       streamTweets()
       tweetTimer()
       $('#back').hide();
+      jQuery("time.timeago").timeago();
     })
 });

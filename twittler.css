@@ -1,8 +1,60 @@
+body {
+  background: linear-gradient(white, #00aced);
+}
+
+#the-nav {
+  background-color: #2fc2ef !important;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
 #back {
   position: absolute;
   right: 20px;
+  background-color: white !important;
+}
+
+#back:hover {
+  background-color: #f2f2f2 !important;
 }
 
 strong {
   font-size: 12px;
+}
+
+time {
+  font-size: 12px;
+  right: 120px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.news-feed {
+  top: 20px;
+  box-shadow: 3px 2px 2px 2px grey;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+#notification {
+  text-align: center;
+}
+
+#notification:hover {
+  background-color: #00aced;
+  cursor: pointer;
+  color: white;
+}
+
+.feed {
+  text-align: center;
+  font-size: 2em;
+}
+
+.tweet:hover {
+  background-color: #99e3ff;
 }
