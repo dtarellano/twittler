@@ -48,6 +48,7 @@ time {
 
 #notification {
   text-align: center;
+  background-color: #eaf9ff;
 }
 
 #notification:hover {

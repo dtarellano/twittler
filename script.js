@@ -1,8 +1,6 @@
-
 $(document).ready(function(){
 
   var index = streams.home.length - 1;
-
 
     var streamTweets = function(user) {
       var stream;
@@ -17,6 +15,7 @@ $(document).ready(function(){
 
       while (loop >= 0) {
         var tweet = stream[loop];
+        // Had problems with timeago working properly - found out I can use 'toISOString' to solve the problem
         var timeago = tweet.created_at.toISOString();
         var $tweet = $(`<li class="list-group-item tweet"><a href="#" id="user"  data-user="${tweet.user}">@${tweet.user}</a><p>${tweet.message}</p><time class="timeago" datetime="${timeago}"></time></li>`);
           $tweet.appendTo('.news-feed').hide().slideDown('slow');
@@ -25,7 +24,6 @@ $(document).ready(function(){
 
       index = streams.home.length; - 1;
     };
-
 
     var checkForTweets;
 
